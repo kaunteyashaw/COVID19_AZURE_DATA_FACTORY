@@ -131,7 +131,14 @@
 						"name": "Copy_population_data_activity",
 						"description": "Copies population.tsv.gz from BLOB to population.tsv ADLS2",
 						"type": "Copy",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "Check_If_File_Exits",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "0.12:00:00",
 							"retry": 0,
@@ -187,6 +194,22 @@
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "Check_If_File_Exits",
+						"type": "Validation",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "ds_population_raw_gz",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"timeout": "0.00:10:00",
+							"sleep": 600,
+							"minimumSize": 1
+						}
 					}
 				],
 				"policy": {
