@@ -74,7 +74,7 @@
 					},
 					"ifTrueActivities": [
 						{
-							"name": "Copy_population_data_activity_copy1",
+							"name": "Copy_population_data_activity",
 							"description": "Copies population.tsv.gz from BLOB to population.tsv ADLS2",
 							"type": "Copy",
 							"dependsOn": [],
