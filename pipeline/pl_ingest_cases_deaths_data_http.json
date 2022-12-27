@@ -4,7 +4,7 @@
 		"activities": [
 			{
 				"name": "Copy_Cases_and_Deaths_Data",
-				"description": "Copy cases and deaths data from,\n\npass relativeURL to v_relativeURL and filename to v_DestFileName",
+				"description": "Copy cases and deaths data from,\n\npass relativeURL to pr_relativeURL and filename to pr_DestFileName",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -49,11 +49,11 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_cases_deaths_raw_csv_http",
+						"referenceName": "ds_ecdc_githubusercontent_csv",
 						"type": "DatasetReference",
 						"parameters": {
 							"pr_relativeURL": {
-								"value": "@variables('v_SourceRelativeURL')",
+								"value": "@pipeline().parameters.pr_SourceRelativeURL",
 								"type": "Expression"
 							}
 						}
@@ -65,7 +65,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"pr_destFileName": {
-								"value": "@variables('v_destFileName')",
+								"value": "@pipeline().parameters.pr_destFileName",
 								"type": "Expression"
 							}
 						}
@@ -73,14 +73,12 @@
 				]
 			}
 		],
-		"variables": {
-			"v_SourceRelativeURL": {
-				"type": "String",
-				"defaultValue": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/dev/ecdc_data/hospital_admissions.csv"
+		"parameters": {
+			"pr_SourceRelativeURL": {
+				"type": "string"
 			},
-			"v_destFileName": {
-				"type": "String",
-				"defaultValue": "hospital_admissions.csv"
+			"pr_destFileName": {
+				"type": "string"
 			}
 		},
 		"annotations": []
