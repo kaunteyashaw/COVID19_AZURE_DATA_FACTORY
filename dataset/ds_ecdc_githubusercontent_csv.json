@@ -1,16 +1,24 @@
 {
-	"name": "ds_cases_deaths_raw_csv_http",
+	"name": "ds_ecdc_githubusercontent_csv",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_http_ecdc_githubusercontent",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"pr_githubusercontentRelURL": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/dev/ecdc_data/cases_deaths.csv"
+				"relativeUrl": {
+					"value": "@dataset().pr_githubusercontentRelURL",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

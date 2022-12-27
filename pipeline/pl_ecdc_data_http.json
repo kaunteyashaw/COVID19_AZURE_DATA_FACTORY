@@ -1,10 +1,10 @@
 {
-	"name": "pl_ingest_cases_deaths_data_http",
+	"name": "pl_ecdc_data_http",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_Cases_and_Deaths_Data",
-				"description": "Copy cases and deaths data from ",
+				"name": "Copy_ECDC_Data",
+				"description": "cases_and_deaths & Hospital_admissions data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -49,18 +49,40 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_cases_deaths_raw_csv_http",
-						"type": "DatasetReference"
+						"referenceName": "ds_ecdc_githubusercontent_csv",
+						"type": "DatasetReference",
+						"parameters": {
+							"pr_githubusercontentRelURL": {
+								"value": "@pipeline().parameters.pr_githubUserContentSourceRelativeURL",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_cases_deaths_raw_csv_DL",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"pr_destFileName": {
+								"value": "@pipeline().parameters.pr_destFileName",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"pr_destFileName": {
+				"type": "string",
+				"defaultValue": "testing.csv"
+			},
+			"pr_githubUserContentSourceRelativeURL": {
+				"type": "string",
+				"defaultValue": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/dev/ecdc_data/testing.csv"
+			}
+		},
 		"annotations": []
 	}
 }
