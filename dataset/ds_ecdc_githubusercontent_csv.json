@@ -1,5 +1,5 @@
 {
-	"name": "ds_cases_deaths_raw_csv_http",
+	"name": "ds_ecdc_githubusercontent_csv",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_http_ecdc_githubusercontent",
