@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_ECDC_Big_Data",
+				"name": "Copy_ECDC_Data",
 				"description": "cases_and_deaths & Hospital_admissions data",
 				"type": "Copy",
 				"dependsOn": [],
@@ -75,10 +75,12 @@
 		],
 		"parameters": {
 			"pr_destFileName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "country_response.csv"
 			},
 			"pr_githubUserContentSourceRelativeURL": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/dev/ecdc_data/country_response.csv"
 			}
 		},
 		"annotations": []
