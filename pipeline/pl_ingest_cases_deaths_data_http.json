@@ -4,7 +4,7 @@
 		"activities": [
 			{
 				"name": "Copy_Cases_and_Deaths_Data",
-				"description": "Copy cases and deaths data from ",
+				"description": "Copy cases and deaths data from,\n\npass relativeURL to v_relativeURL and filename to v_DestFileName",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
