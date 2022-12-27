@@ -5,12 +5,20 @@
 			"referenceName": "ls_adls_adlscovidreportingdl",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"pr_destFileName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "cases_deaths.csv",
+				"fileName": {
+					"value": "@dataset().pr_destFileName",
+					"type": "Expression"
+				},
 				"folderPath": "ecdc_data",
 				"fileSystem": "raw"
 			},

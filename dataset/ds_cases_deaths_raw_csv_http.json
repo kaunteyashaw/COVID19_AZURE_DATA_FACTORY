@@ -5,12 +5,20 @@
 			"referenceName": "ls_http_ecdc_githubusercontent",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"pr_relativeURL": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/dev/ecdc_data/cases_deaths.csv"
+				"relativeUrl": {
+					"value": "@dataset().pr_relativeURL",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

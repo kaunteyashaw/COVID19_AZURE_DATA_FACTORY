@@ -50,17 +50,38 @@
 				"inputs": [
 					{
 						"referenceName": "ds_cases_deaths_raw_csv_http",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"pr_relativeURL": {
+								"value": "@variables('v_SourceRelativeURL')",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_cases_deaths_raw_csv_DL",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"pr_destFileName": {
+								"value": "@variables('v_destFileName')",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"variables": {
+			"v_SourceRelativeURL": {
+				"type": "String"
+			},
+			"v_destFileName": {
+				"type": "String",
+				"defaultValue": "hospital_admissions.csv"
+			}
+		},
 		"annotations": []
 	}
 }
