@@ -75,7 +75,8 @@
 		],
 		"variables": {
 			"v_SourceRelativeURL": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/dev/ecdc_data/hospital_admissions.csv"
 			},
 			"v_destFileName": {
 				"type": "String",
