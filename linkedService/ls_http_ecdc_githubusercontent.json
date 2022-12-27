@@ -1,0 +1,13 @@
+{
+	"name": "ls_http_ecdc_githubusercontent",
+	"properties": {
+		"description": "for accessing GitHub big files > 1024 Kb",
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://raw.githubusercontent.com/",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
