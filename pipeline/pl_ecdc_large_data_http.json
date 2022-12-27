@@ -1,10 +1,10 @@
 {
-	"name": "pl_ingest_cases_deaths_data_http",
+	"name": "pl_ecdc_large_data_http",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_Cases_and_Deaths_Data",
-				"description": "Copy cases and deaths data from,\n\npass relativeURL to pr_relativeURL and filename to pr_DestFileName",
+				"name": "Copy_ECDC_Big_Data",
+				"description": "cases_and_deaths & Hospital_admissions data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -53,7 +53,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"pr_githubusercontentRelURL": {
-								"value": "@pipeline().parameters.pr_SourceRelativeURL",
+								"value": "@pipeline().parameters.pr_githubUserContentSourceRelativeURL",
 								"type": "Expression"
 							}
 						}
@@ -74,9 +74,6 @@
 			}
 		],
 		"parameters": {
-			"pr_githubSourceRelativeURL": {
-				"type": "string"
-			},
 			"pr_destFileName": {
 				"type": "string"
 			},
