@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/tree/dev/ecdc_data/cases_deaths.csv"
+				"relativeUrl": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/blob/dev/ecdc_data/cases_deaths.csv"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
