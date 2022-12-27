@@ -1,0 +1,30 @@
+{
+	"name": "ds_ecdc_github_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_https_ecdc_github",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"pr_githubusercontentRelURL": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().pr_githubusercontentRelURL",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
