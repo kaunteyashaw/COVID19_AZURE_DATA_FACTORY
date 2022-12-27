@@ -52,7 +52,7 @@
 						"referenceName": "ds_ecdc_githubusercontent_csv",
 						"type": "DatasetReference",
 						"parameters": {
-							"pr_relativeURL": {
+							"pr_githubusercontentRelURL": {
 								"value": "@pipeline().parameters.pr_SourceRelativeURL",
 								"type": "Expression"
 							}
@@ -74,10 +74,13 @@
 			}
 		],
 		"parameters": {
-			"pr_SourceRelativeURL": {
+			"pr_githubSourceRelativeURL": {
 				"type": "string"
 			},
 			"pr_destFileName": {
+				"type": "string"
+			},
+			"pr_githubUserContentSourceRelativeURL": {
 				"type": "string"
 			}
 		},

@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"pr_relativeURL": {
+			"pr_githubusercontentRelURL": {
 				"type": "string"
 			}
 		},
@@ -16,7 +16,7 @@
 			"location": {
 				"type": "HttpServerLocation",
 				"relativeUrl": {
-					"value": "@dataset().pr_relativeURL",
+					"value": "@dataset().pr_githubusercontentRelURL",
 					"type": "Expression"
 				}
 			},
