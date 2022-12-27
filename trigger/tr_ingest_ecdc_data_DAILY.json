@@ -3,7 +3,18 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
-		"pipelines": [],
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_ecdc_data_http",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"pr_destFileName": "cases_deaths.csv",
+					"pr_githubUserContentSourceRelativeURL": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/main/ecdc_data/cases_deaths.csv"
+				}
+			}
+		],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
