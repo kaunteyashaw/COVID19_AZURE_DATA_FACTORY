@@ -2,7 +2,7 @@
 	"name": "ds_cases_deaths_raw_csv_http",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_http_ecdcdata_github",
+			"referenceName": "ls_http_ecdc_githubusercontent",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
