@@ -1,5 +1,5 @@
 {
-	"name": "pl_ecdc_large_data_http",
+	"name": "pl_ecdc_data_http",
 	"properties": {
 		"activities": [
 			{
@@ -76,11 +76,11 @@
 		"parameters": {
 			"pr_destFileName": {
 				"type": "string",
-				"defaultValue": "country_response.csv"
+				"defaultValue": "testing.csv"
 			},
 			"pr_githubUserContentSourceRelativeURL": {
 				"type": "string",
-				"defaultValue": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/dev/ecdc_data/country_response.csv"
+				"defaultValue": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/dev/ecdc_data/testing.csv"
 			}
 		},
 		"annotations": []
