@@ -1,0 +1,13 @@
+{
+	"name": "ls_https_ecdc_github",
+	"properties": {
+		"description": "for accessing files < 1024Kb",
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://github.com/",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
