@@ -1,6 +1,7 @@
 {
 	"name": "pl_ecdc_data_http",
 	"properties": {
+		"description": "Metadata-driven data ingestion from HTTP source pipeline.",
 		"activities": [
 			{
 				"name": "lookup_ecdcFileList",
