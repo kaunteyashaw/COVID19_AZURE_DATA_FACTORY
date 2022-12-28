@@ -279,6 +279,7 @@
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"description": "Metadata-driven data ingestion from HTTP source pipeline.",
 				"activities": [
 					{
 						"name": "lookup_ecdcFileList",
