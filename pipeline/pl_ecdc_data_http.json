@@ -27,14 +27,14 @@
 						}
 					},
 					"dataset": {
-						"referenceName": "ds_ecdc_file_list",
+						"referenceName": "ds_ecdc_file_list_metadata",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
 				}
 			},
 			{
-				"name": "ForEach1",
+				"name": "Execute_Copy_for_all_ECDC_Files",
 				"type": "ForEach",
 				"dependsOn": [
 					{
@@ -53,30 +53,10 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Set variable1",
-							"type": "SetVariable",
-							"dependsOn": [],
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "setRelURLxxxx",
-								"value": {
-									"value": "@item().sourceRelativeURL",
-									"type": "Expression"
-								}
-							}
-						},
-						{
 							"name": "Copy_ECDC_Data",
 							"description": "cases_and_deaths & Hospital_admissions data",
 							"type": "Copy",
-							"dependsOn": [
-								{
-									"activity": "Set variable1",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
+							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,
@@ -123,7 +103,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"pr_githubusercontentRelURL": {
-											"value": "@pipeline().parameters.pr_githubUserContentSourceRelativeURL",
+											"value": "@item().sourceRelativeURL",
+											"type": "Expression"
+										},
+										"pr_sourceBaseURLds": {
+											"value": "@item().sourceBaseURL",
 											"type": "Expression"
 										}
 									}
@@ -135,7 +119,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"pr_destFileName": {
-											"value": "@pipeline().parameters.pr_destFileName",
+											"value": "@item().sinkFileName",
 											"type": "Expression"
 										}
 									}
@@ -146,16 +130,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"pr_destFileName": {
-				"type": "string",
-				"defaultValue": "testing.csv"
-			},
-			"pr_githubUserContentSourceRelativeURL": {
-				"type": "string",
-				"defaultValue": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/dev/ecdc_data/testing.csv"
-			}
-		},
 		"annotations": []
 	}
 }
