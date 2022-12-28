@@ -1,5 +1,5 @@
 {
-	"name": "ds_ecdc_file_list",
+	"name": "ds_ecdc_file_list_metadata",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_blob_stracccovidreporting",
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "ecdc_file_list.json",
+				"fileName": "ecdc_file_list_metadata.json",
 				"container": "configfolder"
 			}
 		},
