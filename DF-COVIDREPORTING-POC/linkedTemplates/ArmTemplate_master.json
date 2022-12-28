@@ -27,14 +27,6 @@
 			"type": "string",
 			"defaultValue": "https://github.com/"
 		},
-		"tr_ingest_ecdc_data_DAILY_properties_pl_ecdc_data_http_parameters_pr_destFileName": {
-			"type": "string",
-			"defaultValue": "cases_deaths.csv"
-		},
-		"tr_ingest_ecdc_data_DAILY_properties_pl_ecdc_data_http_parameters_pr_githubUserContentSourceRelativeURL": {
-			"type": "string",
-			"defaultValue": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/main/ecdc_data/cases_deaths.csv"
-		},
 		"tr_ingest_population_data_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/4a89830b-aa60-4f42-b4c4-36045fee1b8a/resourceGroups/rg_covidreporting/providers/Microsoft.Storage/storageAccounts/stracccovidreporting"
@@ -80,12 +72,6 @@
 					},
 					"ls_https_ecdc_github_properties_typeProperties_url": {
 						"value": "[parameters('ls_https_ecdc_github_properties_typeProperties_url')]"
-					},
-					"tr_ingest_ecdc_data_DAILY_properties_pl_ecdc_data_http_parameters_pr_destFileName": {
-						"value": "[parameters('tr_ingest_ecdc_data_DAILY_properties_pl_ecdc_data_http_parameters_pr_destFileName')]"
-					},
-					"tr_ingest_ecdc_data_DAILY_properties_pl_ecdc_data_http_parameters_pr_githubUserContentSourceRelativeURL": {
-						"value": "[parameters('tr_ingest_ecdc_data_DAILY_properties_pl_ecdc_data_http_parameters_pr_githubUserContentSourceRelativeURL')]"
 					},
 					"tr_ingest_population_data_properties_typeProperties_scope": {
 						"value": "[parameters('tr_ingest_population_data_properties_typeProperties_scope')]"
