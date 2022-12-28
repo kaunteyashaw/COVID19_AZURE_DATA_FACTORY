@@ -8,6 +8,9 @@
 		"parameters": {
 			"pr_githubusercontentRelURL": {
 				"type": "string"
+			},
+			"pr_sourceBaseURLds": {
+				"type": "string"
 			}
 		},
 		"annotations": [],

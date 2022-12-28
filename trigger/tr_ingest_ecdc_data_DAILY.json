@@ -1,0 +1,28 @@
+{
+	"name": "tr_ingest_ecdc_data_DAILY",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_ecdc_data_http",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"pr_destFileName": "cases_deaths.csv",
+					"pr_githubUserContentSourceRelativeURL": "kaunteyashaw/COVID19_AZURE_DATA_FACTORY/main/ecdc_data/cases_deaths.csv"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2022-12-28T13:30:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

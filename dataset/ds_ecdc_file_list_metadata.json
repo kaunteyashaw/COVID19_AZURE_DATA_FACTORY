@@ -1,0 +1,29 @@
+{
+	"name": "ds_ecdc_file_list_metadata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blob_stracccovidreporting",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "ecdc_file_list_metadata.json",
+				"container": "configfolder"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"sourceRelativeURL": {
+					"type": "string"
+				},
+				"sinkFileName": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
