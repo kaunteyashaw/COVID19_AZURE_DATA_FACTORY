@@ -18,7 +18,10 @@
 					"name": "FilterEUOnly"
 				},
 				{
-					"name": "select1"
+					"name": "selectColumns"
+				},
+				{
+					"name": "pivotingIndicator"
 				}
 			],
 			"scriptLines": [
@@ -47,7 +50,16 @@
 				"          source",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1"
+				"     skipDuplicateMapOutputs: true) ~> selectColumns",
+				"selectColumns pivot(groupBy(country,",
+				"          country_code,",
+				"          population,",
+				"          ReportedDate,",
+				"          source),",
+				"     pivotBy(indicator, ['confirmed cases', 'deaths']),",
+				"     count = sum(daily_count),",
+				"     columnNaming: '$N$V',",
+				"     lateral: true) ~> pivotingIndicator"
 			]
 		}
 	}
