@@ -18,6 +18,13 @@
 					},
 					"name": "CountrySource",
 					"description": "Get 2-digit CountryCode, 3-digit CountryCode, and Population"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_dim_date_Lookup",
+						"type": "DatasetReference"
+					},
+					"name": "DimDateSource"
 				}
 			],
 			"sinks": [],
@@ -33,6 +40,9 @@
 				},
 				{
 					"name": "SplitDailyFromWeeklyData"
+				},
+				{
+					"name": "DerivedECDCYearWeek"
 				}
 			],
 			"scriptLines": [
@@ -58,6 +68,23 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> CountrySource",
+				"source(output(",
+				"          date_key as string,",
+				"          date as string,",
+				"          year as string,",
+				"          month as string,",
+				"          day as string,",
+				"          day_name as string,",
+				"          day_of_year as string,",
+				"          week_of_month as string,",
+				"          week_of_year as string,",
+				"          month_name as string,",
+				"          year_month as string,",
+				"          year_week as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> DimDateSource",
 				"HospitalAdmissionSource select(mapColumn(",
 				"          country,",
 				"          indicator,",
@@ -88,7 +115,8 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SelectReqFields2",
 				"SelectReqFields2 split(indicator=='Weekly new hospital admissions per 100k' || indicator =='Weekly new ICU admissions per 100k',",
-				"     disjoint: false) ~> SplitDailyFromWeeklyData@(Weekly, Daily)"
+				"     disjoint: false) ~> SplitDailyFromWeeklyData@(Weekly, Daily)",
+				"DimDateSource derive(ecdc_year_week = year+'-W'+lpad(week_of_year, 2, '0')) ~> DerivedECDCYearWeek"
 			]
 		}
 	}
