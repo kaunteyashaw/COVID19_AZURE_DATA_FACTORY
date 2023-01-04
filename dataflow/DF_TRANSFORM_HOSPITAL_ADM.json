@@ -52,6 +52,9 @@
 				},
 				{
 					"name": "PivotDaily"
+				},
+				{
+					"name": "SortWeekly"
 				}
 			],
 			"scriptLines": [
@@ -152,7 +155,9 @@
 				"     pivotBy(indicator, ['Daily hospital occupancy', 'Daily ICU occupancy']),",
 				"     count = sum(value),",
 				"     columnNaming: '$V_$N',",
-				"     lateral: true) ~> PivotDaily"
+				"     lateral: true) ~> PivotDaily",
+				"PivotWeekly sort(desc(reported_year_week, true),",
+				"     asc(country, true)) ~> SortWeekly"
 			]
 		}
 	}
