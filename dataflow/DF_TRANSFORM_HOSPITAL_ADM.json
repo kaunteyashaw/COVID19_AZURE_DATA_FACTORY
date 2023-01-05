@@ -27,7 +27,22 @@
 					"name": "DimDateSource"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_processed_hospital_adm_weekly_parquet",
+						"type": "DatasetReference"
+					},
+					"name": "WeeklySinkParquet"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_processed_hospital_data_csv",
+						"type": "DatasetReference"
+					},
+					"name": "WeeklySinkCSV"
+				}
+			],
 			"transformations": [
 				{
 					"name": "SelectReqFields"
@@ -196,7 +211,22 @@
 				"          source",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> SelectDaily"
+				"     skipDuplicateMapOutputs: true) ~> SelectDaily",
+				"SelectWeekly sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> WeeklySinkParquet",
+				"SelectWeekly sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> WeeklySinkCSV"
 			]
 		}
 	}

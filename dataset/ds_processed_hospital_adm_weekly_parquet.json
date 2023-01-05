@@ -1,0 +1,21 @@
+{
+	"name": "ds_processed_hospital_adm_weekly_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_adlscovidreportingdl",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "processed_hospital_parquet",
+				"folderPath": "ecdc/parquetFiles/hospital_admission_WEEKLY",
+				"fileSystem": "processed"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
