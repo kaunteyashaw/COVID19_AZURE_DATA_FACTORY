@@ -1,5 +1,5 @@
 {
-	"name": "ds_processed_hospital_data_csv",
+	"name": "ds_processed_hospital_adm_CSV_DAILY",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adls_adlscovidreportingdl",
@@ -13,12 +13,11 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "ecdc/hospitals_admissions_WEEKLY",
+				"folderPath": "ecdc/hospital_admissions_DAILY",
 				"fileSystem": "processed"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
-			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": []

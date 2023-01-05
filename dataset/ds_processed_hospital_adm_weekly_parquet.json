@@ -5,6 +5,9 @@
 			"referenceName": "ls_adls_adlscovidreportingdl",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "datasets_processed"
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {

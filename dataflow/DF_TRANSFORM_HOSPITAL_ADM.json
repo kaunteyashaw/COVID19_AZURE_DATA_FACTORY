@@ -41,6 +41,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "WeeklySinkCSV"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_processed_hospital_adm_CSV_DAILY",
+						"type": "DatasetReference"
+					},
+					"name": "DailySink"
 				}
 			],
 			"transformations": [
@@ -226,7 +233,14 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> WeeklySinkCSV"
+				"     skipDuplicateMapOutputs: true) ~> WeeklySinkCSV",
+				"SelectDaily sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> DailySink"
 			]
 		}
 	}
