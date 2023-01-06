@@ -180,6 +180,9 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
+				"folder": {
+					"name": "processing"
+				},
 				"annotations": []
 			},
 			"dependsOn": [
@@ -355,6 +358,9 @@
 					"referenceName": "ls_adls_adlscovidreportingdl",
 					"type": "LinkedServiceReference"
 				},
+				"folder": {
+					"name": "lookup"
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
@@ -403,6 +409,9 @@
 				"linkedServiceName": {
 					"referenceName": "ls_adls_adlscovidreportingdl",
 					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "lookup"
 				},
 				"annotations": [],
 				"type": "DelimitedText",

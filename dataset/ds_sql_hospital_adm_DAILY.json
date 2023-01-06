@@ -5,6 +5,9 @@
 			"referenceName": "ls_sqlserver_cov19reportingDB",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "sql"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
