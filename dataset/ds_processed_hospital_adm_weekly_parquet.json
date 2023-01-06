@@ -1,5 +1,5 @@
 {
-	"name": "ds_processed_cases_and_deaths",
+	"name": "ds_processed_hospital_adm_weekly_parquet",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adls_adlscovidreportingdl",
@@ -9,17 +9,15 @@
 			"name": "datasets_processed"
 		},
 		"annotations": [],
-		"type": "DelimitedText",
+		"type": "Parquet",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "ecdc/cases_deaths",
+				"fileName": "processed_hospital_parquet",
+				"folderPath": "ecdc/parquetFiles/hospital_admission_WEEKLY",
 				"fileSystem": "processed"
 			},
-			"columnDelimiter": ",",
-			"escapeChar": "\\",
-			"firstRowAsHeader": true,
-			"quoteChar": "\""
+			"compressionCodec": "snappy"
 		},
 		"schema": []
 	}

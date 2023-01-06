@@ -15,6 +15,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_blob_stracccovidreporting'"
 		},
+		"ls_db_covid_cluster_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_db_covid_cluster'"
+		},
+		"ls_sqlserver_cov19reportingDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sqlserver_cov19reportingDB'"
+		},
 		"ls_adls_adlscovidreportingdl_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlscovidreportingdl.dfs.core.windows.net/"
@@ -64,6 +72,12 @@
 					"ls_blob_stracccovidreporting_connectionString": {
 						"value": "[parameters('ls_blob_stracccovidreporting_connectionString')]"
 					},
+					"ls_db_covid_cluster_accessToken": {
+						"value": "[parameters('ls_db_covid_cluster_accessToken')]"
+					},
+					"ls_sqlserver_cov19reportingDB_connectionString": {
+						"value": "[parameters('ls_sqlserver_cov19reportingDB_connectionString')]"
+					},
 					"ls_adls_adlscovidreportingdl_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_adlscovidreportingdl_properties_typeProperties_url')]"
 					},
@@ -72,13 +86,33 @@
 					},
 					"ls_https_ecdc_github_properties_typeProperties_url": {
 						"value": "[parameters('ls_https_ecdc_github_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "DF-COVIDREPORTING-POC_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
 					},
 					"tr_ingest_population_data_properties_typeProperties_scope": {
 						"value": "[parameters('tr_ingest_population_data_properties_typeProperties_scope')]"
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'DF-COVIDREPORTING-POC_ArmTemplate_0')]"
+			]
 		}
 	]
 }

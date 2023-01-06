@@ -1,5 +1,5 @@
 {
-	"name": "ds_processed_cases_and_deaths",
+	"name": "ds_processed_hospital_data_csv",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adls_adlscovidreportingdl",
@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "ecdc/cases_deaths",
+				"folderPath": "ecdc/hospitals_admissions_WEEKLY",
 				"fileSystem": "processed"
 			},
 			"columnDelimiter": ",",
