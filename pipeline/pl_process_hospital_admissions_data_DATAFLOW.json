@@ -1,6 +1,32 @@
 {
-	"name": "pipeline1",
+	"name": "pl_process_hospital_admissions_data_DATAFLOW",
 	"properties": {
+		"activities": [
+			{
+				"name": "Dataflow to transform Hospital Transformations",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DF_TRANSFORM_HOSPITAL_ADM",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
 		"annotations": []
 	}
 }
