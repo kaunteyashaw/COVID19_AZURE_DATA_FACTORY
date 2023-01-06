@@ -23,6 +23,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "processing"
+		},
 		"annotations": []
 	}
 }
