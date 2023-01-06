@@ -1,0 +1,41 @@
+{
+	"name": "pl_parent_exec_population_pl",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Ingest Population data",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_ingest_population_data",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Execute population processing pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute Ingest Population data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_process_population_data_databricks",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}

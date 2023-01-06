@@ -9,6 +9,12 @@
 					"referenceName": "pl_ingest_population_data",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pl_parent_exec_population_pl",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "BlobEventsTrigger",
