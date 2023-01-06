@@ -14,6 +14,9 @@
 		"ls_db_covid_cluster_accessToken": {
 			"value": ""
 		},
+		"ls_sqlserver_cov19reportingDB_connectionString": {
+			"value": ""
+		},
 		"ls_adls_adlscovidreportingdl_properties_typeProperties_url": {
 			"value": "https://adlscovidreportingdl.dfs.core.windows.net/"
 		},

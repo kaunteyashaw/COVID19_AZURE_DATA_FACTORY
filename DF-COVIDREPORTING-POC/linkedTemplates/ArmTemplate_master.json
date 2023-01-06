@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'ls_db_covid_cluster'"
 		},
+		"ls_sqlserver_cov19reportingDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sqlserver_cov19reportingDB'"
+		},
 		"ls_adls_adlscovidreportingdl_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlscovidreportingdl.dfs.core.windows.net/"
@@ -70,6 +74,9 @@
 					},
 					"ls_db_covid_cluster_accessToken": {
 						"value": "[parameters('ls_db_covid_cluster_accessToken')]"
+					},
+					"ls_sqlserver_cov19reportingDB_connectionString": {
+						"value": "[parameters('ls_sqlserver_cov19reportingDB_connectionString')]"
 					},
 					"ls_adls_adlscovidreportingdl_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_adlscovidreportingdl_properties_typeProperties_url')]"
